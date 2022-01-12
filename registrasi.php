@@ -1,74 +1,106 @@
 <?php
 function registrasi($data)
 {
-	include "koneksi.php";
-	$username = strtolower(stripcslashes($data["username"]));
-	$password = mysqli_real_escape_string($conn, $data["password"]);
+  include "koneksi.php";
+  $username = strtolower(stripcslashes($data["username"]));
+  $password = mysqli_real_escape_string($conn, $data["password"]);
 
-	$result = mysqli_query($conn, "SELECT username FROM user WHERE username = '$username' ");
-	if (mysqli_fetch_assoc($result)) {
-		echo "<script>
+  $result = mysqli_query($conn, "SELECT username FROM user WHERE username = '$username' ");
+  if (mysqli_fetch_assoc($result)) {
+    echo "<script>
 						alert('username sudah digunakan');
 					</script>";
-		return false;
-	}
+    return false;
+  }
 
-	$password = password_hash($password, PASSWORD_DEFAULT);
+  $password = password_hash($password, PASSWORD_DEFAULT);
 
-	$query_tambah = "INSERT INTO user VALUE('','$username','$password')";
-	mysqli_query($conn, $query_tambah);
+  $query_tambah = "INSERT INTO user VALUE('',2,'$username','$password')";
+  mysqli_query($conn, $query_tambah);
 
-	return mysqli_affected_rows($conn);
+  return mysqli_affected_rows($conn);
 }
 include "koneksi.php";
 
 if (isset($_POST["submit"])) {
 
-  if (registrasi($_POST) > 0) {
+  if ($_POST['password'] != $_POST['confirm_password']) {
     echo "<script>
-              alert('Registrasi Berhasil');
-              document.location.href = 'login.php';
+              alert('Password confirmation not match !');
             </script>";
   } else {
-    echo "<script>
-              alert('Registrasi Gagal');
-            </script>";
+    if (registrasi($_POST) > 0) {
+      echo "<script>
+                alert('Registrasi Berhasil');
+                document.location.href = 'login.php';
+              </script>";
+    } else {
+      echo "<script>
+                alert('Registrasi Gagal');
+              </script>";
+    }
   }
 }
 
 ?>
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
+
+<!doctype html>
+<html lang="en">
+
+<head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="icon" type="image/png" href="images/home.png">
-        <title>REGISTRASI | Sibulain</title>
-    <link rel="stylesheet" href="css/login.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
-  </head>
-  <body>
 
-      <form action="" class="login-form" method="post">
-      
-        <h1>Registrasi</h1>
+    <title>Registrasi | Sibulain</title>
+</head>
 
-        <div class="txtb">
-          <input type="text" name="username">
-          <span data-placeholder="Username"></span>
+<body class="bg-light" style="background-image: url('https://images.unsplash.com/photo-1579546929518-9e396f3cc809?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80'); background-size: cover;">
+    <div class="container">
+        <div class="row align-items-center justify-content-center min-vh-100">
+            <div class="col-md-5 bg-white p-5 rounded-2">
+                <div class="text-center p-3">
+                    <h1>Registrasi</h1>
+                </div>
+                <div>
+                    <form action="" method="POST">
+                        <!-- Username -->
+                        <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Username"> 
+                            <label for="floatingInput">Username</label>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="form-floating mb-3">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                            <label for="floatingPassword">Password</label>
+                        </div>
+
+                        <!-- Confirm Password -->
+                        <div class="form-floating mb-3">
+                        <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Confir Password">
+                            <label for="floatingPassword">Confirm Password</label>
+                        </div>
+
+                        <!-- Button -->
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <a href="_login.php" class="link-primary text-decoration-none">Login</a>
+                            </div>
+
+                            <div>
+                            <button type="submit" name="submit" class="btn btn-primary">registrasi</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
         </div>
+    </div>
 
-        <div class="txtb">
-          <input type="password" name="password">
-          <span data-placeholder="Password"></span>
-        </div>
-
-        <input type="submit" name="submit" class="logbtn" value="Login">
-
-        
-
-      </form>
-
-      <script type="text/javascript">
+    <script type="text/javascript">
       $(".txtb input").on("focus",function(){
         $(this).addClass("focus");
       });
@@ -79,7 +111,7 @@ if (isset($_POST["submit"])) {
       });
 
       </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
 
-
-  </body>
 </html>
