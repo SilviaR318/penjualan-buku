@@ -1,7 +1,7 @@
 <?php
 session_start();
-if (!isset($_SESSION["username"])) {
-    header("Location : user.php");
+if (empty($_SESSION["username"])) {
+    header('Location: http://localhost/penjualan-buku/login.php');
     exit;
 }
 ?>
