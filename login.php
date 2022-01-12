@@ -50,18 +50,6 @@ if (isset($_POST['submit'])) {
       $hash = hash('sha256', $row['id']);
       setcookie('hash', $hash, time() + 60 * 60 * 24);
     }
-
-
-
-    // var_dump($_SESSION);
-    // die;
-
-    // if (hash('sha256', $row['id'] == $_SESSION['hash'])) {
-    //   header("Location: databuku.php");
-    //   die;
-    // }
-    // header("Location: produk.php");
-    // die;
   }
   $error = true;
 }
@@ -71,63 +59,66 @@ if (isset($_POST['submit'])) {
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="icon" type="image/png" href="images/home.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="icon" type="image/png" href="images/home.png">
 
-    <title>Login | Sibulain</title>
+  <title>Login | Sibulain</title>
 </head>
 
 <body class="bg-light" style="background-image: url('https://images.unsplash.com/photo-1579546929518-9e396f3cc809?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80'); background-size: cover;">
-    <div class="container">
-        <div class="row align-items-center justify-content-center min-vh-100">
-            <div class="col-md-5 bg-white p-5 rounded-2">
-                <div class="text-center p-3">
-                    <h1>Login</h1>
-                </div>
-                <div>
-                    <form action="" method="POST">
-                    <?php if (isset($error)) : ?>
-                    <p style="color: red; font-style: italic;">Username atau Password salah</p>
-                      <?php endif; ?>
-                    <!-- <h1>Login Admin</h1> -->
-                        <!-- Username -->
-                        <div class="form-floating mb-3">
-                          <input type="text" class="form-control" id="username" name="username" placeholder="Username"> 
-                            <label for="floatingInput">Username</label>
-                        </div>
-
-                        <!-- Password -->
-                        <div class="form-floating mb-3">
-                            <input type="password" class="form-control" id="password" name="password" placeholder="Password">
-                            <label for="floatingPassword">Password</label>
-                        </div>
-
-                        <!-- Check box -->
-                        <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1" name="checkbox">
-                            <label class="form-check-label" for="exampleCheck1">Remember me</label>
-                        </div>
-
-                        <!-- Button -->
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <a href="registrasi.php" class="link-primary text-decoration-none">Registrasi</a>
-                            </div>
-
-                            <div>
-                            <button type="submit" name="submit" class="btn btn-primary">Login</button>
-                            </div>
-                        </div>
-
-                    </form>
-                </div>
-            </div>
+  <div class="container">
+    <div class="row align-items-center justify-content-center min-vh-100">
+      <div class="col-md-5 bg-white p-5 rounded-2">
+        <div class="text-center p-3">
+          <h1>Login</h1>
         </div>
-    </div>
+        <div>
+          <form action="" method="POST">
 
-    <script type="text/javascript">
+            <?php if (isset($error)) : ?>
+              <div class="alert alert-danger" role="alert">
+                Username atau Password salah!
+              </div>
+            <?php endif; ?>
+
+            <!-- Username -->
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+              <label for="floatingInput">Username</label>
+            </div>
+
+            <!-- Password -->
+            <div class="form-floating mb-3">
+              <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+              <label for="floatingPassword">Password</label>
+            </div>
+
+            <!-- Check box -->
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1" name="checkbox">
+              <label class="form-check-label" for="exampleCheck1">Remember me</label>
+            </div>
+
+            <!-- Button -->
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <a href="registrasi.php" class="link-primary text-decoration-none">Registrasi</a>
+              </div>
+
+              <div>
+                <button type="submit" name="submit" class="btn btn-primary">Login</button>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
     $(".txtb input").on("focus", function() {
       $(this).addClass("focus");
     });
@@ -137,7 +128,7 @@ if (isset($_POST['submit'])) {
         $(this).removeClass("focus");
     });
   </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 
 </html>
