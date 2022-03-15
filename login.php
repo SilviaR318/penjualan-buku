@@ -33,6 +33,7 @@ if (isset($_POST['submit'])) {
     if (password_verify($password, $row['password'])) {
       // buat session username dan password jika data benar
       $_SESSION['username'] = $_POST['username'];
+      $_SESSION['role_id'] = $row['role_id'];
       $_SESSION['hash'] = hash('sha256', $row['id'], false);
 
       // cek role id
