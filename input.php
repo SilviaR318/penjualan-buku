@@ -6,6 +6,10 @@ if (!isset($_SESSION["username"])) {
   header("Location : login.php");
   exit;
 }
+if ($_SESSION["role_id"] != 1) {
+    header('Location: http://localhost/penjualan-buku/login.php');
+    exit;
+}
 ?>
 
 <html>
