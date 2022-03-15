@@ -16,6 +16,7 @@ if (isset($_COOKIE['username']) && isset($_COOKIE['hash'])) {
 
   if ($hash === hash('sha256', $row['id'], false)) {
     $_SESSION['username'] = $row['username'];
+    $_SESSION['role_id'] = $row['role_id'];
     header("Location: databuku.php");
     exit;
   }
