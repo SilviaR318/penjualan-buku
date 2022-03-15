@@ -5,10 +5,7 @@ if (!isset($_SESSION["username"])) {
   header("Location : login.php");
   exit;
 }
-if ($_SESSION["role_id"] != 1) {
-    header('Location: http://localhost/penjualan-buku/index.php');
-    exit;
-}
+
 include "koneksi.php";
  if ($_GET['hal']=="edit") {
      
