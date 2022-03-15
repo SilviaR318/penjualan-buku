@@ -48,6 +48,7 @@ if (isset($_POST['submit'])) {
     }
 
     if (isset($_POST['remember'])) {
+      setcookie('role_id', $row['role_id'], time() + 60 * 60 * 24);
       setcookie('username', $row['username'], time() + 60 * 60 * 24);
       $hash = hash('sha256', $row['id']);
       setcookie('hash', $hash, time() + 60 * 60 * 24);
