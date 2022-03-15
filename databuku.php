@@ -4,10 +4,7 @@ if (empty($_SESSION["username"])) {
     header('Location: http://localhost/penjualan-buku/login.php');
     exit;
 }
-if ($_SESSION["role_id"] != 1) {
-    header('Location: http://localhost/penjualan-buku/index.php');
-    exit;
-}
+
 ?>
 <html>
 
