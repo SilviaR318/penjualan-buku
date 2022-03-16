@@ -1,9 +1,9 @@
 <?php
-session_start();
-if (empty($_SESSION["username"])) {
-    header('Location: http://localhost/penjualan-buku/login.php');
-    exit;
-}
+//session_start();
+//if (empty($_SESSION["username"])) {
+  //  header('Location: http://localhost/penjualan-buku/login.php');
+    //exit;
+//}
 ?>
 <html>
 
@@ -27,15 +27,29 @@ if (empty($_SESSION["username"])) {
             <div class="navbar">
                 <nav>
                     <ul id="menuitems">
-                        <li><a href="index.php">Home</a></li>
-                        <li><a href="aboutbook.php">About Books</a></li>
-                        <li><a href="produk.php">All Product</a></li>
+                       <?php if (empty($_SESSION["username"])) : ?>
+                            <li><a href="index.php">Home</a></li>
+                            <li><a href="aboutbook.php">About Books</a></li>
+                        <?php else : ?>
+                            <li><a href="index.php">Home</a></li>
+                            <li><a href="aboutbook.php">About Books</a></li>
+                            <li><a href="produk.php">All Product</a></li>
+                            <li><a href="detail.php">Detail</a></li>
+                        <?php endif; ?>
+     
+     
                     </ul>
-                </nav>
-                <a href="keranjang.php">
-                    <img src="images/cart.png" width="30px" height="30px">
-                </a>
-                <a href="logout.php" class="btn"> Logout</a>
+                        </nav>
+                
+                <?php if (empty($_SESSION["username"])) : ?>
+                    <a href="login.php" class="btn" style="margin-left: 20px;"> Login</a>
+                    <a href="registrasi.php" class="btn" style="margin-left: 20px;"> Register</a>
+                <?php else : ?>
+                    <a href="keranjang.php">
+                        <img src="images/cart.png" width="30px" height="30px">
+                    </a>
+                    <a href="logout.php" class="btn"> Logout</a>
+                <?php endif; ?>
                 <img src="images/menu.png" class="menu-icn" width="30px" height="30px">
             </div>
             <div class="row">
