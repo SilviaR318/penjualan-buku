@@ -1,162 +1,144 @@
-
 <?php
-//menghubungkan dengan file php lainya
 session_start();
-if (!isset($_SESSION["username"])) {
-  header("Location : login.php");
-  exit;
+if (empty($_SESSION["username"])) {
+    header('Location: http://localhost/penjualan-buku/login.php');
+    exit;
 }
 if ($_SESSION["role_id"] != 1) {
     header('Location: http://localhost/penjualan-buku/index.php');
     exit;
 }
+
+$username = $_SESSION["username"];
 ?>
 
-<html>
-    <head>
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="icon" type="image/png" href="images/home.png">
-        <title>Admin | SibulainStore</title>
-        <link rel="stylesheet" href="css/index.css">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;600&display=swap" rel="stylesheet">
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
-        <style type="text/css">
 
-        *{
-            margin: 0;
-            padding: 0;
-            font-family: 'Times New Roman', Times, serif;
-        }
+    <title>Admin | SibulainStore</title>
+</head>
 
-        
+<body>
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="sidebar" aria-labelledby="sidebarLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="sidebarLabel">Sibulain</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="databuku.php">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="input.php">Tambah buku</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="logout.php">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 
-        .login{
-            width: 500px;
-            height: 600px;
-            background: radial-gradient( #FFC0CB, #20B2AA);
-            backdrop-filter: blur(1000vh);
-            box-sizing: border-box;
-            border-radius: 20px;
-            position: absolute;
-            top: 30%;
-            left:500px;
-            margin: auto;
-            color:  #555;
-            padding: 70px 40px;
-            text-align: center;
-            
-        }
+    <main>
+        <nav class="navbar navbar-light bg-light">
+            <div class="container">
 
-        .avatar{
-            border-radius: 50%;
-            position: absolute;
-            top: -70px;
-            left: 35%;
-        }
+                <div class="d-flex align-items-center">
+                    <button type="button" class="navbar-toggler border-0" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <a class="navbar-brand ms-1" href="#">Sibulain</a>
+                </div>
 
-        h1{
-           text-align: center;
-            font-size: 25px;
-            padding: 20px;
+                <div class="dropdown">
+                    <button type="button" class="btn dropdown-toggle" id="profile" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="text-muted"><?= $username ?></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="profile">
+                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+                    </ul>
+                </div>
 
-            
-           
-        }
+            </div>
+        </nav>
 
-        .login p{
-            margin: 0;
-            padding: 0;
-            font-weight: bold;
-
-        }
-
-        .login input{
-            width: 100%;
-            margin-bottom: 20px;
-        }
-
-        .login input[type="text"]
-        {
-            border: none;
-            border-bottom: 1px solid #fff;
-            background: transparent;
-            color: white;
-            font-size: 16px;
-
-           
-        }
+        <div>
+            <div class="row py-3">
+                <div class="col-10 col-md-8 mx-auto">
+                    <div class="col-sm">
+                        <h2>Tambah buku baru</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
-        .tombol{
-            width: 100%;
-            padding: 8px 10px;
-            outline: none;
-            border: 2px solid#fff;
-            border-radius: 20px;
-            background: transparent;
-            color: #fff;
-            font-size: 20px;
-            float: right;
-            text-align: center;
-            cursor: pointer;
-        }
+        <div>
+            <div class="row py-2">
+                <div class="col-10 col-md-5 mx-auto pb-5">
 
-    
-        </style>
-    </head>
-    <body>
-        
-    <div class="header">
-       
-       <div class="container">
-           <div class="navbar">
-               <!-- <div class="logo">
-                  <img src="images/png light.png" width="120px">
-               </div>-->
-            
-               <nav>
-                   <ul id="menuitems">
-                       <li><a href="home.html">Home</a></li>
-                       <li><a href="">About Us</a></li>
-                       <li><a href="produc.html">All Product</a></li>
-                       
-                   </ul>
-               </nav>
-               <img src="images/cart.png" width="30px" height="30px">
-               <img src="images/menu.png" class="menu-icn" width="30px" height="30px">
-       </div>
-       
-       </div>
-       </div>
+                    <form action="prosesinput.php" method="post">
 
-        
-        <div class="login">
-             <img src="images/home.png" height="150" width="150" class="avatar">
-                <h1>DATA BUKU</h1>
-                
-                <form action="prosesinput.php" method="POST" acttion="" >
+                        <div class="mb-3">
+                            <label for="gambar" class="form-label">Foto</label>
+                            <input class="form-control" type="file" name="txtfoto" id="gambar" required>
+                        </div>
 
-                    <label>Foto</label>
-                    <input type="file" name="txtfoto" id="foto" required> 
-                    <label>Judul Buku</label>
-                    <input type="text" name="txtjudul" required >
-                    <label>Deskripsi Buku</label>
-                    <input type="text" name="txtdeskripsi" required>
-                    <label>Pengarang</label>
-                    <input type="text" name="txtpengarang" required>
-                    <label>Peneribit</label>
-                    <input type="text" name="txtpenerbit" required>
-                    <label>stok</label>
-                    <input type="text" name="txtstok" required>
-                    <label>Harga</label>
-                    <input type="text" name="txtharga" id="harga" required>
-                    <input type="submit" value="simpan" name="Daftar" class="tombol"  >  
-                    
-                </form>
+                        <div class="mb-3">
+                            <label for="judul" class="form-label">Judul</label>
+                            <input type="text" class="form-control" id="judul" name="txtjudul" placeholder="Judul buku" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="deskripsi" class="form-label">Deskripsi</label>
+                            <textarea class="form-control" id="deskripsi" rows="3" name="txtdeskripsi"></textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="pengarang" class="form-label">Pengarang</label>
+                            <input type="text" class="form-control" id="pengarang" name="txtpengarang" placeholder="J. K. Rowling" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="penerbit" class="form-label">Penerbit</label>
+                            <input type="text" class="form-control" id="penerbit" name="txtpenerbit" placeholder="Gramedia" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="stok" class="form-label">Stok</label>
+                            <input type="number" class="form-control" id="stok" name="txtstok" placeholder="1000" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="harga" class="form-label">Harga</label>
+                            <input type="number" class="form-control" id="harga" name="txtharga" placeholder="RP.54,000" required>
+                        </div>
 
 
+                        <div class="d-flex justify-content-between">
+                            <button class="btn btn-outline-secondary" type="reset">Batal</button>
+                            <button class="btn btn-primary" type="submit">Simpan</button>
+                        </div>
 
+                    </form>
 
+                </div>
+            </div>
+        </div>
 
-    </body>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+
 </html>

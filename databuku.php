@@ -33,16 +33,16 @@ $username = $_SESSION["username"];
         <div class="offcanvas-body">
             <ul class="nav flex-column">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link" href="databuku.php">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="input.php">Tambah buku</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Link</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link" href="logout.php">Logout</a>
                 </li>
             </ul>
         </div>
