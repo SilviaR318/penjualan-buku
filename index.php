@@ -27,7 +27,7 @@
             <div class="navbar">
                 <nav>
                     <ul id="menuitems">
-                       <?php if (empty($_SESSION["username"])) : ?>
+              <?php if (empty($_SESSION["username"])) : ?>
                             <li><a href="index.php">Home</a></li>
                             <li><a href="aboutbook.php">About Books</a></li>
                         <?php else : ?>
@@ -40,8 +40,10 @@
      
                     </ul>
                         </nav>
-                
-                <?php if (empty($_SESSION["username"])) : ?>
+
+
+                        
+                        <?php if (empty($_SESSION["username"])) : ?>
                     <a href="login.php" class="btn" style="margin-left: 20px;"> Login</a>
                     <a href="registrasi.php" class="btn" style="margin-left: 20px;"> Register</a>
                 <?php else : ?>
