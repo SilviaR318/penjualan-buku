@@ -34,7 +34,7 @@ session_start();
                             <li><a href="index.php">Home</a></li>
                             <li><a href="aboutbook.php">About Books</a></li>
                             <li><a href="produk.php">All Product</a></li>
-                            <li><a href="detail.php">Detail</a></li>
+                           //<li><a href="detail.php">Detail</a></li>
                         <?php endif; ?>
      
      
