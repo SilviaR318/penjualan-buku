@@ -1,8 +1,11 @@
 <?php
 
+session_start();
 class Components
 {
     public $username;
+    public $app_name = "Sibulain";
+    public $auth;
 
     function sidebar($username)
     {
@@ -52,5 +55,41 @@ class Components
 
             </div>
         </nav>';
+    }
+
+    public function navbar()
+    {
+        if (isset($_SESSION['username'])) {
+            $this->auth = '
+            <a class="nav-link" href="keranjang.php" role="button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
+                    <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
+                </svg>
+            </a>
+            <a class="nav-link" href="logout.php" role="button">Logout</a>
+            ';
+        } else {
+            $this->auth = '
+            <a class="nav-link" href="login.php" role="button">Login</a>
+            <a class="btn btn-light" href="registrasi.php" role="button">Register</a>
+            ';
+        }
+
+        return '<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="/">' . $this->app_name . '</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link active" href="/">Home</a>
+                    <a class="nav-link" href="produk.php">Products</a>
+                    <a class="nav-link" href="aboutbook.php">About Books</a>
+                    ' . $this->auth . '
+                </div>
+                </div>
+            </div>
+            </nav>';
     }
 }
