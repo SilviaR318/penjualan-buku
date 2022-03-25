@@ -72,13 +72,13 @@ session_start();
         <div class="small">
             <div class="row">
                 <div class="col-3">
-                    <img src="images/category-1.jpg">
+                    <img src="images/gambar1.jpg">
                 </div>
                 <div class="col-3">
-                    <img src="images/category-2.jpg" alt="">
+                    <img src="images/gambar2.jpg" alt="">
                 </div>
                 <div class="col-3">
-                    <img src="images/category-3.jpg" alt="">
+                    <img src="images/gambar3.jpg" alt="">
                 </div>
 
             </div>
@@ -87,11 +87,11 @@ session_start();
 
     <!--------Product--------->
     <div class="small">
-        <h2 class="title">Books</h2>
+        <h2 class="title">books</h2>
         <div class="row">
             <div class="col-4">
-                <img src="images/bg1.jpg">
-                <h4>Sara Wijayanto</h4>
+                <img src="images/gambar4.jpg">
+                <h4>Noor Cholis Basjaruddin</h4>
                 <div class="rating">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -102,8 +102,8 @@ session_start();
                 <p>Rp.85.000</p>
             </div>
             <div class="col-4">
-                <img src="images/bg2.jpg">
-                <h4>Mark Manson</h4>
+                <img src="images/gambar5.jpg">
+                <h4>Nur Nafi’iyah</h4>
                 <div class="rating">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -114,8 +114,8 @@ session_start();
                 <p>Rp.67.000</p>
             </div>
             <div class="col-4">
-                <img src="images/bg3.jpg">
-                <h4>Tere Liye</h4>
+                <img src="images/gambar6.jpg">
+                <h4>Johnie Rogers Swanda Pasaribu, S.Kom., M.Kom.</h4>
                 <div class="rating">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -126,8 +126,8 @@ session_start();
                 <p>Rp.68.000</p>
             </div>
             <div class="col-4">
-                <img src="images/bg4.png">
-                <h4>Valeri patkar</h4>
+                <img src="images/gambar7.jpg">
+                <h4>Bagaskoro, S.Kom., M.M.</h4>
                 <div class="rating">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -142,8 +142,8 @@ session_start();
         <h2 class="title"> Lates Books</h2>
         <div class="row">
             <div class="col-4">
-                <img src="images/bg5.jpg">
-                <h4>Pidi Baiq</h4>
+                <img src="images/gambar8.jpg">
+                <h4>Dwi Krisbiantoro</h4>
                 <div class="rating">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -154,20 +154,20 @@ session_start();
                 <p>Rp.89.000</p>
             </div>
             <div class="col-4">
-                <img src="images/bg6.jpg">
-                <h4>Isa Alamsyah</h4>
+                <img src="images/gambar9.jpg">
+                <h4>Robi Yanto</h4>
                 <div class="rating">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
-                    <i class="far fa-star"></i>
                     <i class="fas fa-star-half-alt"></i>
+                    <i class="far fa-star"></i>
                 </div>
                 <p>Rp.80.000</p>
             </div>
             <div class="col-4">
-                <img src="images/bg7.jpeg">
-                <h4>Tere Liye</h4>
+                <img src="images/gambar10.jpg">
+                <h4>Lucy Pujasari Supratman dan Adi Bayu Mahadian</h4>
                 <div class="rating">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -178,8 +178,8 @@ session_start();
                 <p>Rp.85.000</p>
             </div>
             <div class="col-4">
-                <img src="images/bg8.jpeg">
-                <h4>Tere Liye</h4>
+                <img src="images/gambar11.jpg">
+                <h4>Budi Pangerti</h4>
                 <div class="rating">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -192,8 +192,8 @@ session_start();
             </div>
             <div class="row">
                 <div class="col-4">
-                    <img src="images/bg10.jpg">
-                    <h4>Henry Manampiring</h4>
+                    <img src="images/gambar12.jpg">
+                    <h4>Aryanto</h4>
                     <div class="rating">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -204,8 +204,8 @@ session_start();
                     <p>$50.00</p>
                 </div>
                 <div class="col-4">
-                    <img src="images/bg9.jpg">
-                    <h4>Sohn won-Pyung</h4>
+                    <img src="images/gambar13.jpg">
+                    <h4>Sri Rahayu Zee</h4>
                     <div class="rating">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -216,8 +216,8 @@ session_start();
                     <p>Rp.70.400</p>
                 </div>
                 <div class="col-4">
-                    <img src="images/bg11.jpg">
-                    <h4>Jerome Polin Sijabat</h4>
+                    <img src="images/gambar14.jpg">
+                    <h4>Ira Maisarah, S.Hum., M.Pd.</h4>
                     <div class="rating">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -228,8 +228,8 @@ session_start();
                     <p>Rp.76.000</p>
                 </div>
                 <div class="col-4">
-                    <img src="images/bg12.jpg">
-                    <h4>Marchella Fp</h4>
+                    <img src="images/gambar15.jpg">
+                    <h4>Arisandy Ambarita</h4>
                     <div class="rating">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
