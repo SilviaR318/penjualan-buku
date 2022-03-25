@@ -27,6 +27,15 @@
       font-size: 14px;
     }
 
+    .gambar_buku_keranjang {
+      width: 25px;
+      height: auto;
+    }
+
+    .inputjumlah {
+      font-size: 11px;
+    }
+
     @media only screen and (min-width: 1100px) {
       .card {
         font-size: 16px;
@@ -76,17 +85,17 @@
                 <tr>
                   <th scope="row"><?= $no++ ?></th>
                   <td>
-                    <img src="images/<?= $ambil_data['foto'] ?>" style="max-width: 3cm;">
+                    <img src="images/<?= $ambil_data['foto'] ?>" class="gambar_buku_keranjang">
                   </td>
                   <td><?= $ambil_data['judul'] ?></td>
                   <td>
                     <form action="ubah_item_keranjang.php?id_keranjang=<?= $ambil_data['id_keranjang'] ?>" method="post">
-                      <input type="number" class="form-control" name="input" id="input1" value="<?= $ambil_data['jumlah_buku'] ?>" max="<?= $ambil_data['stok'] ?>" min="1" style="max-width: 2cm" />
+                      <input type="number" class="form-control inputjumlah" name="input" id="input1" value="<?= $ambil_data['jumlah_buku'] ?>" max="<?= $ambil_data['stok'] ?>" min="1" style="max-width: 2cm" />
                   </td>
                   <td><?= number_format($ambil_data['harga'], 2, ',', '.') ?></td>
                   <td><?= number_format($ambil_data['harga'] * $ambil_data['jumlah_buku'], 2, ',', '.') ?></td>
                   <td>
-                    <button type="submit" class="fas fa-edit fa-2x" style="border: 0;background: none;"></button>
+                    <button type="submit" class="fas fa-edit fa-2x" style="border: 0;background:none;"></button>
                     </form>
                     <a class="fas fa-trash fa-2x text-dark" onclick="confirm('Yakin Dihapus?')" href="hapus_item_keranjang.php?id_keranjang=<?= $ambil_data['id_keranjang'] ?>"></a>
                   </td>
