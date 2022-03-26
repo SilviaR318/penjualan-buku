@@ -29,7 +29,7 @@ $components = new Components();
     <!-- Jumbotron End -->
 
     <!-- Books Start -->
-    <div class="container">
+    <div class="container mb-5">
         <div class="row">
             <div class="col-12">
                 <h2 class="display-6 text-center fw-bold">Books</h2>
@@ -60,7 +60,7 @@ $components = new Components();
                         <div class="col">
                             <div class="card h-100">
                                 <a class="text-decoration-none" href="detail.php?id=<?= $ambil_data['kd_buku'] ?>">
-                                    <img src="images/<?= $ambil_data['foto'] ?>" class="card-img-top" alt="...">
+                                    <img style="height: 40rem;" src="images/<?= $ambil_data['foto'] ?>" class="card-img-top" alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title text-black"><?= $ambil_data['pengarang'] ?></h5>
                                         <small class="text-muted">Rp<?= number_format($ambil_data['harga'], 2, ',', '.') ?></small>
@@ -78,10 +78,6 @@ $components = new Components();
         </div>
     </div>
     <!-- Books End -->
-
-    <!-- Wave Start-->
-    <?= $components->wave() ?>
-    <!-- Wave End -->
 
     <!-- Footer Start -->
     <?= $components->footer() ?>
