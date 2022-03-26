@@ -63,17 +63,24 @@ class Components
     {
         if (isset($_SESSION['username'])) {
             $this->auth = '
-            <a class="nav-link" href="keranjang.php" role="button">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
-                    <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
+            <a class="nav-link d-flex align-items-center" href="keranjang.php">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-fill" viewBox="0 0 16 16">
+                    <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5z"/>
                 </svg>
+                <div class="d-flex ms-2 d-md-none">Cart</div>
             </a>
-            <a class="nav-link" href="logout.php" role="button">Logout</a>
+            <a class="nav-link d-flex align-items-center" href="logout.php">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+                    <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+                </svg>
+                <div class="d-flex ms-2 d-md-none">Logout</div>
+            </a>
             ';
         } else {
             $this->auth = '
             <a class="nav-link" href="login.php" role="button">Login</a>
-            <a class="btn btn-light" href="registrasi.php" role="button">Register</a>
+            <a class="btn btn-light text-primary" href="registrasi.php" role="button">Register</a>
             ';
         }
 
@@ -88,7 +95,9 @@ class Components
 
                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div class="navbar-nav ms-auto">
-                            <a class="nav-link active" href="/">Home</a>
+                            <a class="nav-link active" href="/">
+                                Home
+                            </a>
                             ' . $this->auth . '
                         </div>
                     </div>
@@ -100,17 +109,17 @@ class Components
     public function footer()
     {
         return '
-            <div class="bg-light">
+            <div class="bg-dark">
                 <div class="container">
                     <footer class="py-3">
                         <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-                            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-                            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
-                            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
-                            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
-                            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link px-2 text-white">Home</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link px-2 text-white">Features</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link px-2 text-white">Pricing</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link px-2 text-white">About</a></li>
                         </ul>
-                        <p class="text-center text-muted">&copy; ' . date('Y') . '  ' . $this->app_name . ', Inc</p>
+                        <p class="text-center text-white">&copy; ' . date('Y') . '  ' . $this->app_name . ', Inc</p>
                     </footer>
                 </div>
             </div>
@@ -119,7 +128,7 @@ class Components
 
     public function head($title = "Untitle")
     {
-        $title = $title . ' | ' . $this->app_name;
+        $title = $title . ' - ' . $this->app_name;
 
         return '
             <meta charset="utf-8">
