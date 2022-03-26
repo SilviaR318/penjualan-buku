@@ -70,7 +70,7 @@ if (isset($_POST['submit'])) {
   <title>Login | Sibulain</title>
 </head>
 
-<body class="bg-light" style="background-image: url('https://images.unsplash.com/photo-1579546929518-9e396f3cc809?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80'); background-size: cover;">
+<body style="background-color: #334155;">
   <div class="container">
     <div class="row align-items-center justify-content-center min-vh-100">
       <div class="col-md-5 bg-white p-5 rounded-2">
