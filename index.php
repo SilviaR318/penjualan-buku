@@ -1,402 +1,94 @@
 <?php
-session_start();
-//if (empty($_SESSION["username"])) {
-  //  header('Location: http://localhost/penjualan-buku/login.php');
-    //exit;
-//}
+
+require_once('components.php');
+
+$components = new Components();
+
 ?>
-<html>
+
+<!doctype html>
+<html lang="en">
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="images/home.png">
-    <title>SIBULAIN</title>
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;600&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <?= $components->head("Welcome") ?>
 </head>
 
 <body>
+    <!-- Navbar Start -->
+    <?= $components->navbar() ?>
+    <!-- Navbar End -->
 
-
-    <div class="header">
-
-
-        <div class="container">
-            <div class="navbar">
-                <nav>
-                    <ul id="menuitems">
-              <?php if (empty($_SESSION["username"])) : ?>
-                            <li><a href="index.php">Home</a></li>
-                            <li><a href="aboutbook.php">About Books</a></li>
-                        <?php else : ?>
-                            <li><a href="index.php">Home</a></li>
-                            <li><a href="aboutbook.php">About Books</a></li>
-                            <li><a href="produk.php">All Product</a></li>                         
-                       <?php endif; ?>
-     
-     
-                    </ul>
-                        </nav>
-
-
-                        
-                        <?php if (empty($_SESSION["username"])) : ?>
-                    <a href="login.php" class="btn" style="margin-left: 20px;"> Login</a>
-                    <a href="registrasi.php" class="btn" style="margin-left: 20px;"> Register</a>
-                <?php else : ?>
-                    <a href="keranjang.php">
-                        <img src="images/cart.png" width="30px" height="30px">
-                    </a>
-                    <a href="logout.php" class="btn"> Logout</a>
-                <?php endif; ?>
-                <img src="images/menu.png" class="menu-icn" width="30px" height="30px">
-            </div>
-            <div class="row">
-                <div class="col-2">
-                    <h1>A New Style!</h1>
-                    <p>"Life is a journey to be experienced, not a problem to be solved". <br>Happy a new Day With Your Style</p>
-                    <a href="" class="btn">Explore Now &#8594;</a>
-                </div>
-                <div class="col-2">
-                    <img src="images/home.png">
-
-                </div>
-            </div>
+    <!-- Jumbotron Start -->
+    <div class="p-5 mb-4 bg-light rounded-3">
+        <div class="container py-5 text-center">
+            <h1 class="display-5 fw-bold">A New Style</h1>
+            <p class="fs-4">"Life is a journey to be experienced, not a problem to be solved".<br>Happy a new Day With Your Style</p>
+            <a href="produk.php" class="btn btn-primary btn-lg" type="button">Explore Books</a>
         </div>
     </div>
+    <!-- Jumbotron End -->
 
-    <!---------------Kategori---------------->
-    <div class="categori">
-        <div class="small">
-            <div class="row">
-                <div class="col-3">
-                    <img src="images/gambar1.jpg">
-                </div>
-                <div class="col-3">
-                    <img src="images/gambar2.jpg" alt="">
-                </div>
-                <div class="col-3">
-                    <img src="images/gambar3.jpg" alt="">
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <!--------Product--------->
-    <div class="small">
-        <h2 class="title">books</h2>
+    <!-- Books Start -->
+    <div class="container">
         <div class="row">
-            <div class="col-4">
-                <img src="images/gambar4.jpg">
-                <h4>Noor Cholis Basjaruddin</h4>
-                <div class="rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="far fa-star"></i>
-                    <i class="far fa-star"></i>
-                </div>
-                <p>Rp.85.000</p>
+            <div class="col-12">
+                <h2 class="display-6 text-center fw-bold">Books</h2>
             </div>
-            <div class="col-4">
-                <img src="images/gambar5.jpg">
-                <h4>Nur Nafi’iyah</h4>
-                <div class="rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="far fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <p>Rp.67.000</p>
-            </div>
-            <div class="col-4">
-                <img src="images/gambar6.jpg">
-                <h4>Johnie Rogers Swanda Pasaribu, S.Kom., M.Kom.</h4>
-                <div class="rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="far fa-star"></i>
-                    <i class="far fa-star"></i>
-                </div>
-                <p>Rp.68.000</p>
-            </div>
-            <div class="col-4">
-                <img src="images/gambar7.jpg">
-                <h4>Bagaskoro, S.Kom., M.M.</h4>
-                <div class="rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                    <i class="far fa-star"></i>
 
-                </div>
-                <p>Rp.81.000</p>
-            </div>
-        </div>
-        <h2 class="title"> Lates Books</h2>
-        <div class="row">
-            <div class="col-4">
-                <img src="images/gambar8.jpg">
-                <h4>Dwi Krisbiantoro</h4>
-                <div class="rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="far fa-star"></i>
-                    <i class="far fa-star"></i>
-                </div>
-                <p>Rp.89.000</p>
-            </div>
-            <div class="col-4">
-                <img src="images/gambar9.jpg">
-                <h4>Robi Yanto</h4>
-                <div class="rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                    <i class="far fa-star"></i>
-                </div>
-                <p>Rp.80.000</p>
-            </div>
-            <div class="col-4">
-                <img src="images/gambar10.jpg">
-                <h4>Lucy Pujasari Supratman dan Adi Bayu Mahadian</h4>
-                <div class="rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="far fa-star"></i>
-                    <i class="far fa-star"></i>
-                </div>
-                <p>Rp.85.000</p>
-            </div>
-            <div class="col-4">
-                <img src="images/gambar11.jpg">
-                <h4>Budi Pangerti</h4>
-                <div class="rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                    <i class="far fa-star"></i>
+            <div class="col">
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <?php
+                    include "koneksi.php";
+                    if (isset($_GET['tombolSubmit'])) {
+                        $sortir = $_GET['sortir'];
+                        $keyword = $_GET['cari'];
+                        if ("$sortir" != "NULL") {
+                            $query = mysqli_query($conn, "SELECT * FROM buku ORDER BY $sortir");
+                        } else {
+                            if ($keyword) {
+                                $query = mysqli_query($conn, "SELECT * FROM buku WHERE judul like '%$keyword%'");
+                            } else {
+                                $query = mysqli_query($conn, "SELECT * FROM buku");
+                            }
+                        }
+                    } else {
+                        $query = mysqli_query($conn, "SELECT * FROM buku");
+                    }
+                    $no = 0;
+                    while ($ambil_data = mysqli_fetch_array($query)) : ?>
 
-                </div>
-                <p>Rp.85.000</p>
-            </div>
-            <div class="row">
-                <div class="col-4">
-                    <img src="images/gambar12.jpg">
-                    <h4>Aryanto</h4>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    <p>$50.00</p>
-                </div>
-                <div class="col-4">
-                    <img src="images/gambar13.jpg">
-                    <h4>Sri Rahayu Zee</h4>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <p>Rp.70.400</p>
-                </div>
-                <div class="col-4">
-                    <img src="images/gambar14.jpg">
-                    <h4>Ira Maisarah, S.Hum., M.Pd.</h4>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    <p>Rp.76.000</p>
-                </div>
-                <div class="col-4">
-                    <img src="images/gambar15.jpg">
-                    <h4>Arisandy Ambarita</h4>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                        <i class="far fa-star"></i>
+                        <div class="col">
+                            <div class="card h-100">
+                                <a class="text-decoration-none" href="detail.php?id=<?= $ambil_data['kd_buku'] ?>">
+                                    <img src="images/<?= $ambil_data['foto'] ?>" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-black"><?= $ambil_data['pengarang'] ?></h5>
+                                        <small class="text-muted">Rp<?= number_format($ambil_data['harga'], 2, ',', '.') ?></small>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
 
-                    </div>
-                    <p>Rp.125.000</p>
-                </div>
-            </div>
-        </div>
+                    <?php
+                    endwhile;
+                    ?>
 
-        <!--------offer------------->
-        <div class="offer">
-            <div class="small-contrainer">
-                <div class="row">
-                    <div class="col-2">
-                        <img src="images/exclusive.png" class="offer-img">
-                    </div>
-                    <div class="col-2">
-                        <p>Exlusively Availabel on BerStore</p>
-                        <h1>Smart Brand Watch</h1>
-                        <small>
-                            New Brand features a 39.9% larges, AMOLED color full-touch display with adjustable brightnes so everthing is clear as can be
-                        </small><br></br>
-                        <a href="" class="btn">Buy Now &#8594;</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <!-----testimoni------>
-    <div class="testimoni">
-        <div class="small-contrainer">
-            <div class="row">
-                <div class="col-3">
-                    <i class="fas fa-quote-left"></i>
-                    <p>"Application Server & Web Programmer"</p>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    <img src="images/nanda.jpeg">
-                    <h3>Nanda Prasetya</h3>
-                </div>
-                <div class="col-3">
-                    <i class="fas fa-quote-left"></i>
-                    <p>"Database Server & Web Programmer"</p>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    <img src="images/Silvia.jpeg">
-                    <h3>Silvia Rosita</h3>
-                </div>
-                <div class="col-3">
-                    <i class="fas fa-quote-left"></i>
-                    <p>"Application Server & Web Programmer"</p>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    <img src="images/aldo.jpeg">
-                    <h3>Wan Rivaldo</h3>
-                </div>
-                <div class="col-3">
-                    <i class="fas fa-quote-left"></i>
-                    <p>"Web Server & Web Designer"</p>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    <img src="images/Wahyu.jpeg">
-                    <h3>Wahyu Dwi Susanti</h3>
-                </div>
-                <div class="col-3">
-                    <i class="fas fa-quote-left"></i>
-                    <p>"Buku adalah jembatan ilmu untuk menghubungkan pengetahuan dengan kehidupan nyata."</p>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    <img src="images/brly.jpeg">
-                    <h3>Rima Aida Istiqomah</h3>
-                </div>
-                <div class="col-3">
-                    <i class="fas fa-quote-left"></i>
-                    <p>"Buku adalah jembatan ilmu untuk menghubungkan pengetahuan dengan kehidupan nyata."</p>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    <img src="images/brly.jpeg">
-                    <h3>Desi Harmonika</h3>
-                </div>
-                <div class="col-3">
-                    <i class="fas fa-quote-left"></i>
-                    <p>"Buku adalah jembatan ilmu untuk menghubungkan pengetahuan dengan kehidupan nyata."</p>
-                    <div class="rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    <img src="images/brly.jpeg">
-                    <h3>Veny Angelia</h3>
                 </div>
             </div>
         </div>
     </div>
+    <!-- Books End -->
 
-    <!------Brand--------->
-    <div class="brand">
-        <div class="small-contrainer">
-            <div class="row">
-                <div class="col-5">
-                    <img src="images/logo-philips.png">
-                </div>
-                <div class="col-5">
-                    <img src="images/logo-godrej.png">
-                </div>
-                <div class="col-5">
-                    <img src="images/logo-coca-cola.png">
-                </div>
-            </div>
-        </div>
-    </div>
+    <!-- Wave Start-->
+    <?= $components->wave() ?>
+    <!-- Wave End -->
 
-    <!-----fotter--------->
-    <div class="fotter">
-        <div class="contrainer">
-            <div class="row">
-                <div class="fotter-col1">
-                    <h3>Access</h3>
-                    <p>Access with your phone</p><br>
-                    <img src="images/fb.png">
-                    <img src="images/tw.png">
-                    <img src="images/ig.png">
-                    <p>Our Account</p>
-                    <img src="images/png dark.png">
-                </div>
+    <!-- Footer Start -->
+    <?= $components->footer() ?>
+    <!-- Footer End -->
 
 
-            </div>
-
-        </div>
-        <hr>
-        <p class="copyright">CopyRight SIBULAIN</p>
-    </div>
-    </div>
-
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 
 </html>
