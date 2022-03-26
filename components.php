@@ -1,6 +1,8 @@
 <?php
 
-session_start();
+if (!isset($_SESSION)) {
+    session_start();
+}
 class Components
 {
     public $username;
@@ -84,12 +86,23 @@ class Components
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ms-auto">
                     <a class="nav-link active" href="/">Home</a>
-                    <a class="nav-link" href="produk.php">Products</a>
-                    <a class="nav-link" href="aboutbook.php">About Books</a>
                     ' . $this->auth . '
                 </div>
                 </div>
             </div>
             </nav>';
+    }
+
+    public function footer()
+    {
+        return '
+        <footer class="container">
+        <div class="row">
+            <div class="col text-center p-3">
+                <span class="text-muted">&copy; ' . date('Y') . '  ' . $this->app_name . '</span>
+            </div>
+        </div>
+    </footer>
+        ';
     }
 }
