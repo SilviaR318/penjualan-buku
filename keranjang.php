@@ -1,3 +1,13 @@
+<?php
+
+session_start();
+include 'koneksi.php';
+require_once('components.php');
+
+$components = new Components();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -76,7 +86,9 @@
       </style>
    </head>
    <body>
-
+    <!-- Navbar Start -->
+    <?= $components->navbar() ?>
+    <!-- Navbar End  -->
       <!-- Container -->
       <div class="container" style="padding-top: 5%;"> 
       <button type="button" class="btn btn-white" style="border-radius: 10px;" class="back"><a href="produk.php" >
