@@ -7,6 +7,9 @@
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.4.4
 
+CREATE DATABASE buku_baru;
+USE buku_baru;
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -63,8 +66,7 @@ INSERT INTO `buku` (`kd_buku`, `foto`, `judul`, `deskripsi`, `pengarang`, `pener
 (36, 'bg6.jpg', 'Tuhan, kenapa kau memberiku wajah ini?', 'Buku Keren', 'Isa Alamsyah', 'Elex Media', 29, 90000),
 (37, 'bg8.jpeg', 'Pulang', 'Buku Pulang', 'Tere liye', 'Sabak Grip Nusantara', 20, 80000),
 (38, 'bg9.jpg', 'Almond', 'Buku Almond', 'Sohn Won-Pyung', 'Grasindo', 20, 75000),
-(39, 'bg10.jpg', 'Filosofi Teras', 'Filsafat Yunani-Romawi Kuno untuk mental tangguh masa kini', 'Henry Manampiring', 'Kompas', 20, 120000),
-(45, 'download (4).jpg', 'tttt', 'ggg', 'gf', 'Sinar Dunia', 444, 180000);
+(39, 'bg10.jpg', 'Filosofi Teras', 'Filsafat Yunani-Romawi Kuno untuk mental tangguh masa kini', 'Henry Manampiring', 'Kompas', 20, 120000);
 
 -- --------------------------------------------------------
 
