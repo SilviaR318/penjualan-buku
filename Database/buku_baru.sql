@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 18 Mar 2022 pada 05.45
+-- Waktu pembuatan: 28 Mar 2022 pada 08.44
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.4.4
 
@@ -55,7 +55,7 @@ CREATE TABLE `buku` (
 --
 
 INSERT INTO `buku` (`kd_buku`, `foto`, `judul`, `deskripsi`, `pengarang`, `penerbit`, `stok`, `harga`) VALUES
-(18, 'bg3.jpg', 'Selamat Tinggal', 'Buku ini menceritakan tentang ....', 'Tere Liye', ' Gramedia Pustaka Ut', 26, 80000),
+(18, 'bg3.jpg', 'Selamat Tinggal', 'Buku ini menceritakan tentang ....', 'Tere Liye', ' Gramedia Pustaka Ut', 28, 80000),
 (29, 'bg7.jpeg', 'Pergi', 'Sebuah kisah tentang menemukan tujuan, ke mana hendak pergi, ', 'Tere Liye', ' Sabak Grip Nusantar', 96, 89000),
 (33, 'bg1.jpg', 'Wingit', 'buku wingit', 'Sara wijayanto', 'Elex Media', 17, 65000),
 (34, 'bg4.png', 'Serangkai', 'buku serankai', 'Valerie Patkar', 'Bhuana Sastra', 20, 80000),
@@ -65,25 +65,6 @@ INSERT INTO `buku` (`kd_buku`, `foto`, `judul`, `deskripsi`, `pengarang`, `pener
 (38, 'bg9.jpg', 'Almond', 'Buku Almond', 'Sohn Won-Pyung', 'Grasindo', 20, 75000),
 (39, 'bg10.jpg', 'Filosofi Teras', 'Filsafat Yunani-Romawi Kuno untuk mental tangguh masa kini', 'Henry Manampiring', 'Kompas', 20, 120000),
 (45, 'download (4).jpg', 'tttt', 'ggg', 'gf', 'Sinar Dunia', 444, 180000);
-
---
--- Trigger `buku`
---
-DELIMITER $$
-CREATE TRIGGER `update_insert` AFTER INSERT ON `buku` FOR EACH ROW BEGIN
-INSERT INTO penerbit 
-set kd_buku = new.kd_buku, penerbit=new.penerbit, judul=new.judul;
-END
-$$
-DELIMITER ;
-DELIMITER $$
-CREATE TRIGGER `update_penerbit` AFTER UPDATE ON `buku` FOR EACH ROW BEGIN
-UPDATE penerbit 
-set penerbit=new.penerbit, judul=new.judul
-WHERE kd_buku=new.kd_buku;
-END
-$$
-DELIMITER ;
 
 -- --------------------------------------------------------
 
