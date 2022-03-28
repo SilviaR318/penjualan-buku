@@ -26,7 +26,7 @@ $ambil_data = mysqli_fetch_array($query);
             <div class="col-md-8 mx-auto d-flex align-items-center justify-content-center">
                 <div class="card border-0">
                     <div class="row g-0">
-                        <div class="col-md-4">
+                        <div style="padding-top: 1rem;" class="col-md-4">
                             <img src="images/<?= $ambil_data['foto'] ?>" class="p-0 p-md-0 img-fluid rounded" alt="Foto buku <?= $ambil_data['judul'] ?>">
                         </div>
                         <div class="col-md-8">
@@ -50,7 +50,7 @@ $ambil_data = mysqli_fetch_array($query);
                                 </div>
 
                                 <span class="text-capitalize fw-bold">deksripsi buku</span>
-                                <p class="card-text"><?= $ambil_data['deskripsi'] ?></p>
+                                <p style="text-align: justify;" class="card-text"><?= $ambil_data['deskripsi'] ?></p>
 
                                 <span class="text-capitalize fw-bold">detail</span>
                                 <div class="row">
