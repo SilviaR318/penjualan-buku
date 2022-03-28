@@ -26,7 +26,7 @@ $ambil_data = mysqli_fetch_array($query);
             <div class="col-md-8 mx-auto d-flex align-items-center justify-content-center">
                 <div class="card border-0">
                     <div class="row g-0">
-                        <div class="col-md-4">
+                        <div style="padding-top: 1rem;" class="col-md-4">
                             <img src="images/<?= $ambil_data['foto'] ?>" class="p-0 p-md-0 img-fluid rounded" alt="Foto buku <?= $ambil_data['judul'] ?>">
                         </div>
                         <div class="col-md-8">
