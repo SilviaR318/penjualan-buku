@@ -50,7 +50,7 @@ $ambil_data = mysqli_fetch_array($query);
                                 </div>
 
                                 <span class="text-capitalize fw-bold">deksripsi buku</span>
-                                <p class="card-text"><?= $ambil_data['deskripsi'] ?></p>
+                                <p style="text-align: justify;" class="card-text"><?= $ambil_data['deskripsi'] ?></p>
 
                                 <span class="text-capitalize fw-bold">detail</span>
                                 <div class="row">
