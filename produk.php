@@ -4,10 +4,21 @@ if (empty($_SESSION["username"])) {
     header('Location: http://localhost/penjualan-buku/login.php');
     exit;
 }
+
+require_once('components.php');
+$components = new Components();
+
 ?>
 <html>
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <!-- Required meta tags -->
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <!-- Bootstrap CSS -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+      <!-- FontAwesome -->
+      <script src="https://kit.fontawesome.com/7cb1654f53.js" crossorigin="anonymous"></script>
+      <title>Keranjang || Sibulain</title>
         <link rel="icon" type="image/png" href="images/home.png">
         <title>ALL PRODUCT | SibulainStore</title>
         <link rel="stylesheet" href="css/index.css">
@@ -41,25 +52,7 @@ if (empty($_SESSION["username"])) {
 
 
         
-        <div class="header">
-       
-        <div class="container">
-            <div class="navbar">
-                <nav>
-                    <ul id="menuitems">
-                        <li><a href="index.php">Home</a></li>
-                        <li><a href="aboutbook.php">About Us</a></li>
-                        <li><a href="produk.php">All Product</a></li>
-                    </ul>
-                </nav>
-                <a href="keranjang.php">
-                    <img src="images/cart.png" width="30px" height="30px">
-                </a>
-                <img src="images/menu.png" class="menu-icn" width="30px" height="30px">
-        </div>
-        
-        </div>
-        </div>
+        <?= $components->navbar() ?>
     
    
     <!--------Product--------->
