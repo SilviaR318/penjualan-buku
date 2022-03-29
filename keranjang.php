@@ -119,8 +119,6 @@ $components = new Components();
                      </thead>
                      <tbody>
                         <?php 
-                           session_start();
-                           include 'koneksi.php';
                            $uname = $_SESSION['username'];
                            $query_id = mysqli_query($conn,"SELECT * FROM user WHERE username = '$uname'");
                            $ambil_id = mysqli_fetch_array($query_id);
