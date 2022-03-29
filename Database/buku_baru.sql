@@ -3,12 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 28 Mar 2022 pada 08.44
+-- Waktu pembuatan: 29 Mar 2022 pada 07.50
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.4.4
-
-CREATE DATABASE buku_baru;
-USE buku_baru;
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -58,7 +55,7 @@ CREATE TABLE `buku` (
 --
 
 INSERT INTO `buku` (`kd_buku`, `foto`, `judul`, `deskripsi`, `pengarang`, `penerbit`, `stok`, `harga`) VALUES
-(18, 'bg3.jpg', 'Selamat Tinggal', 'Buku ini menceritakan tentang ....', 'Tere Liye', ' Gramedia Pustaka Ut', 28, 80000),
+(18, 'bg3.jpg', 'Selamat Tinggal', 'Buku ini menceritakan tentang ....', 'Tere Liye', ' Gramedia Pustaka Ut', 26, 80000),
 (29, 'bg7.jpeg', 'Pergi', 'Sebuah kisah tentang menemukan tujuan, ke mana hendak pergi, ', 'Tere Liye', ' Sabak Grip Nusantar', 96, 89000),
 (33, 'bg1.jpg', 'Wingit', 'buku wingit', 'Sara wijayanto', 'Elex Media', 17, 65000),
 (34, 'bg4.png', 'Serangkai', 'buku serankai', 'Valerie Patkar', 'Bhuana Sastra', 20, 80000),
@@ -87,9 +84,8 @@ CREATE TABLE `keranjang` (
 
 INSERT INTO `keranjang` (`id_keranjang`, `id_pengguna`, `id_buku`, `jumlah_buku`) VALUES
 (30, 24, 29, 1),
-(42, 25, 33, 1),
-(43, 25, 29, 2),
-(45, 30, 33, 2);
+(45, 30, 33, 2),
+(47, 25, 18, 2);
 
 -- --------------------------------------------------------
 
@@ -130,6 +126,25 @@ CREATE TABLE `tbl_barang_user` (
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `tb_checkout`
+--
+
+CREATE TABLE `tb_checkout` (
+  `id` int(11) NOT NULL,
+  `FirstName` varchar(225) NOT NULL,
+  `LastName` varchar(225) NOT NULL,
+  `Address 1` varchar(225) NOT NULL,
+  `Address 2` varchar(225) NOT NULL,
+  `Country` varchar(50) NOT NULL,
+  `City` varchar(50) NOT NULL,
+  `Zip` int(225) DEFAULT NULL,
+  `Phone` int(50) DEFAULT NULL,
+  `Ongkir` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `tb_order`
 --
 
@@ -152,7 +167,8 @@ INSERT INTO `tb_order` (`id_order`, `jumlah_harga`, `id_pengguna`) VALUES
 (8, 158000, 24),
 (9, 360000, 24),
 (10, 100000, 24),
-(11, 243000, 25);
+(11, 243000, 25),
+(12, 243000, 25);
 
 -- --------------------------------------------------------
 
@@ -180,7 +196,8 @@ INSERT INTO `user` (`id`, `role_id`, `username`, `password`) VALUES
 (24, 1, 'silvia318', '$2y$10$Qq8evskBtjhNWLMemSmy5uGOufah8eWJuJ2efkA9jgIQIAiUUUNSG'),
 (25, 2, 'nanda357', '$2y$10$op51.2wBg0Cm6vvCmO.Ak.yp8iFTGEvcPOl3/wxTFqaJMMxk.mRxG'),
 (29, 2, 'sil123', '$2y$10$.58ikgJUHIZpiHu3AGYxtubnYNmbHIseoOdDjnl7QPzs/NbMoPOcm'),
-(30, 2, 'silros123', '$2y$10$w05PS.JuJb7U.wRwThavYO83JjrhE8FGnjb1N4GXcRv6bU5gTqrU2');
+(30, 2, 'silros123', '$2y$10$w05PS.JuJb7U.wRwThavYO83JjrhE8FGnjb1N4GXcRv6bU5gTqrU2'),
+(31, 2, 'adada', '$2y$10$LAcpo2vZ4M3paSgvkRyb2eadGRxgOQVwVkSWbvo0ckal.z6bF9WDS');
 
 -- --------------------------------------------------------
 
@@ -216,6 +233,12 @@ ALTER TABLE `role_access`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `tb_checkout`
+--
+ALTER TABLE `tb_checkout`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `tb_order`
 --
 ALTER TABLE `tb_order`
@@ -243,7 +266,7 @@ ALTER TABLE `buku`
 -- AUTO_INCREMENT untuk tabel `keranjang`
 --
 ALTER TABLE `keranjang`
-  MODIFY `id_keranjang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id_keranjang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT untuk tabel `role_access`
@@ -252,16 +275,22 @@ ALTER TABLE `role_access`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT untuk tabel `tb_checkout`
+--
+ALTER TABLE `tb_checkout`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT untuk tabel `tb_order`
 --
 ALTER TABLE `tb_order`
-  MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
@@ -279,6 +308,12 @@ ALTER TABLE `keranjang`
 --
 ALTER TABLE `role_access`
   ADD CONSTRAINT `role_access` FOREIGN KEY (`id`) REFERENCES `user` (`role_id`);
+
+--
+-- Ketidakleluasaan untuk tabel `tb_checkout`
+--
+ALTER TABLE `tb_checkout`
+  ADD CONSTRAINT `tb_checkout` FOREIGN KEY (`id`) REFERENCES `user` (`id`);
 
 --
 -- Ketidakleluasaan untuk tabel `tb_order`
