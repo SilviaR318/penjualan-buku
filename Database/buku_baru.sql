@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 29 Mar 2022 pada 07.50
+-- Waktu pembuatan: 29 Mar 2022 pada 09.16
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.4.4
 
@@ -11,6 +11,8 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
+CREATE Database buku_baru;
+use buku_baru;
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -133,8 +135,8 @@ CREATE TABLE `tb_checkout` (
   `id` int(11) NOT NULL,
   `FirstName` varchar(225) NOT NULL,
   `LastName` varchar(225) NOT NULL,
-  `Address 1` varchar(225) NOT NULL,
-  `Address 2` varchar(225) NOT NULL,
+  `Address_1` varchar(225) NOT NULL,
+  `Address_2` varchar(225) NOT NULL,
   `Country` varchar(50) NOT NULL,
   `City` varchar(50) NOT NULL,
   `Zip` int(225) DEFAULT NULL,
@@ -266,7 +268,7 @@ ALTER TABLE `buku`
 -- AUTO_INCREMENT untuk tabel `keranjang`
 --
 ALTER TABLE `keranjang`
-  MODIFY `id_keranjang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id_keranjang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT untuk tabel `role_access`
