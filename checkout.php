@@ -100,7 +100,7 @@ $components = new Components();
             <p>Isi data kamu dengan benar!</p>
             <div class="row">
               <div class="col-md-6">
-                <form action="datauser.php" method="post">
+                <form action="pembayaran.php" method="post">
 
                 <input type="radio" name="inputRadio" value="1" id="flexRadioDefault1" /><img class="logo" src="asset/logoGopay.png" width="100px" checked>
                 <input type="radio" name="inputRadio" value="2" id="flexRadioDefault1" /><img class="logo" src="asset/logoBank.png" width="100px">
@@ -108,23 +108,23 @@ $components = new Components();
               </div>
             <div class="row">
               <div class="col-md-6">
-                <input type="text" class="form-control" placeholder="First Name" name="firstName" />
+                <input type="text" class="form-control" placeholder="First Name" name="FirstName" />
               </div>
               <div class="col-md-6">
-                <input type="text" class="form-control" placeholder="Last Name" name="lastName" />
+                <input type="text" class="form-control" placeholder="Last Name" name="LastName" />
               </div>
             </div>
             <div class="row">
               <div class="col-md-12">
-                <input type="text" class="form-control" placeholder="Address" name="address1" />
+                <input type="text" class="form-control" placeholder="Address" name="Address_1" />
               </div>
               <div class="col-md-12">
-                <input type="text" class="form-control" placeholder="Address 2" name="address2"/>
+                <input type="text" class="form-control" placeholder="Address 2" name="Address_2"/>
               </div>
             </div>
             <div class="row">
               <div class="col-md-6">
-                <select id="country" name="country" class="form-control">
+                <select id="country" name="Country" class="form-control">
                   <option value="">- Select Country -</option>
                   <option value="Afghanistan">Afghanistan</option>
                   <option value="Åland Islands">Åland Islands</option>
@@ -373,21 +373,21 @@ $components = new Components();
                 </select>
               </div>
               <div class="col-md-6">
-                <input type="text" class="form-control" placeholder="City" name="city"/>
+                <input type="text" class="form-control" placeholder="City" name="City"/>
               </div>
             </div>
             <div class="row">
               <div class="col-md-6">
-                <input type="number" class="form-control" placeholder="ZIP / Postal Code" name="zip"/>
+                <input type="number" class="form-control" placeholder="ZIP / Postal Code" name="Zip"/>
               </div>
               <div class="col-md-6">
-                <input type="text" class="form-control" placeholder="Phone Number" name="phone"/>
+                <input type="text" class="form-control" placeholder="Phone Number" name="Phone"/>
               </div>
             </div>
             <div class="row">
               <div class="col-md-2">
                 <label class="radio">
-                  <input type="radio" name="ongkir" value="1" checked>
+                  <input type="radio" name="Ongkir" value="free" checked>
                   <span>Free Shipping <br>
                     <p style="font-size: 10px;">Beetwen 2-5 working days</p>
                   </span>
@@ -395,7 +395,7 @@ $components = new Components();
               </div>
               <div class="col-md-4">
                 <label class="radio">
-                  <input type="radio" name="ongkir" value="2">
+                  <input type="radio" name="Ongkir" value="Bayar">
                   <span>Next Day Delivery - $20 <br>
                     <p style="font-size: 10px;">24 hours from checkout</p>
                   </span>
@@ -405,7 +405,7 @@ $components = new Components();
           </div>
         </div>
       </section>
-      <button class="btn btn-light my-5 " style="border-radius: 10px;" type="submit">CHECKOUT</button>
+      <button class="btn btn-light my-5 " style="border-radius: 10px;" type="submit" name="checkout" value="Check">CHECKOUT</button>
     </form>
       </div>
       <!-- Akhir dari Container -->
@@ -427,4 +427,3 @@ $components = new Components();
       </script>
    </body>
 </html>
-
