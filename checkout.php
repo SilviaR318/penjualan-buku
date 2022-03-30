@@ -89,8 +89,7 @@ $components = new Components();
       <!-- Navbar End  -->
       <!-- Container -->
       <div class="container" style="padding-top: 5%;"> 
-      <button type="button" class="btn btn-white" style="border-radius: 10px;" class="back"><a href="keranjang.php" >
-      <i class="fas fa-arrow-left"></i>
+      <button type="button" class="btn btn-primary" style="border-radius: 10px;" class="back"><a href="produk.php" >
       Kembali
       </a></button>
       <section class="section2">
@@ -405,7 +404,7 @@ $components = new Components();
           </div>
         </div>
       </section>
-      <button class="btn btn-light my-5 " style="border-radius: 10px;" type="submit" name="checkout" value="Check">CHECKOUT</button>
+      <button class="btn btn-light my-5 " style="border-radius: 10px;" type="submit" name="checkout" value="Check">Checkout</button>
     </form>
       </div>
       <!-- Akhir dari Container -->
