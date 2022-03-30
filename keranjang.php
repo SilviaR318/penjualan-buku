@@ -91,8 +91,7 @@ $components = new Components();
     <!-- Navbar End  -->
       <!-- Container -->
       <div class="container" style="padding-top: 5%;"> 
-      <button type="button" class="btn btn-white" style="border-radius: 10px;" class="back"><a href="produk.php" >
-      <i class="fas fa-arrow-left"></i>
+     <button type="button" class="btn btn-primary" style="border-radius: 10px;" class="back"><a href="produk.php" >
       Kembali
       </a></button>
       <section class="section1">
@@ -159,7 +158,7 @@ $components = new Components();
             </div>
       </section>
 
-      <a class="btn btn-light my-5 " href="checkout.php" style="border-radius: 10px;" role="button">GO TO CHECKOUT</a>
+      <a class="btn btn-light my-5 " href="checkout.php" style="border-radius: 10px;" role="button">Go To Checkout</a>
       </div>
       <!-- Akhir dari Container -->
       <!-- Option 1: Bootstrap Bundle with Popper -->
