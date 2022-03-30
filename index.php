@@ -21,8 +21,8 @@ $components = new Components();
     <!-- Jumbotron Start -->
     <div class="p-5 mb-4 bg-light rounded-3">
         <div class="container py-5 text-center">
-            <h1 class="display-5 fw-bold">A New Style</h1>
-            <p class="fs-4">"Life is a journey to be experienced, not a problem to be solved".<br>Happy a new Day With Your Style</p>
+            <h1 class="display-5 fw-bold">Buku adalah jendela ilmu pengetahuan</h1>
+            <p class="fs-4">Jendela berfungsi untuk melihat ke arah luar. Sehingga dengan membaca buku kita dapat menemukan banyak ilmu pengetahuan yang dapat membuka wawasan kita.</p>
             <a href="produk.php" class="btn btn-primary btn-lg" type="button">Explore Books</a>
         </div>
     </div>
