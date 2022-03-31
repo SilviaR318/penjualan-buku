@@ -29,7 +29,7 @@ $ambil_data = mysqli_fetch_array($query);
                         <div style="padding-top: 1rem;" class="col-md-4">
                             <img src="images/<?= $ambil_data['foto'] ?>" class="p-0 p-md-0 img-fluid rounded" alt="Foto buku <?= $ambil_data['judul'] ?>">
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-md-8 ps-md-4">
                             <div class="card-body">
                                 <span class="text-muted"><?= $ambil_data['pengarang'] ?></span>
                                 <h5 class="card-title fw-bold display-5"><?= $ambil_data['judul'] ?></h5>
