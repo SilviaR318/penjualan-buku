@@ -25,9 +25,6 @@ class Components
                     <a class="nav-link" href="input.php">Tambah buku</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="logout.php">Logout</a>
                 </li>
             </ul>
@@ -50,7 +47,6 @@ class Components
                         <span class="text-muted">' . $username . '</span>
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="profile">
-                        <li><a class="dropdown-item" href="#">Profile</a></li>
                         <li><a class="dropdown-item" href="logout.php">Logout</a></li>
                     </ul>
                 </div>
@@ -113,11 +109,8 @@ class Components
                 <div class="container">
                     <footer class="py-3">
                         <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-                            <li class="nav-item"><a href="#" class="nav-link px-2 text-white">Home</a></li>
-                            <li class="nav-item"><a href="#" class="nav-link px-2 text-white">Features</a></li>
-                            <li class="nav-item"><a href="#" class="nav-link px-2 text-white">Pricing</a></li>
-                            <li class="nav-item"><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
-                            <li class="nav-item"><a href="#" class="nav-link px-2 text-white">About</a></li>
+                            <li class="nav-item"><a href="index.php" class="nav-link px-2 text-white">Home</a></li>
+                            <li class="nav-item"><a href="produk.php" class="nav-link px-2 text-white">Produk</a></li>
                         </ul>
                         <p class="text-center text-white">&copy; ' . date('Y') . '  ' . $this->app_name . ', Inc</p>
                     </footer>
