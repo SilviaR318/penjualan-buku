@@ -7,21 +7,6 @@ if (isset($_SESSION['username'])) {
   exit;
 }
 
-if (isset($_COOKIE['username']) && isset($_COOKIE['hash'])) {
-  $username = $_COOKIE['username'];
-  $hash = $_COOKIE['hash'];
-
-  $result = mysqli_query($conn, "SELECT * FROM user WHERE username = '$username'");
-  $row = mysqli_fetch_assoc($result);
-
-  if ($hash === hash('sha256', $row['id'], false)) {
-    $_SESSION['username'] = $row['username'];
-    $_SESSION['role_id'] = $row['role_id'];
-    header("Location: databuku.php");
-    exit;
-  }
-}
-
 if (isset($_POST['submit'])) {
   $username = $_POST['username'];
   $password = $_POST['password'];
@@ -35,7 +20,18 @@ if (isset($_POST['submit'])) {
       $_SESSION['username'] = $_POST['username'];
       $_SESSION['role_id'] = $row['role_id'];
       $_SESSION['hash'] = hash('sha256', $row['id'], false);
-
+      
+      // buat cookie
+      if (isset($_POST['remember'])) {
+      setcookie('role_id', $row['role_id'], time() + 60 * 60 * 24);
+      setcookie('username', $row['username'], time() + 60 * 60 * 24);
+      $hash = hash('sha256', $row['id']);
+      setcookie('hash', $hash, time() + 60 * 60 * 24);
+      } else {
+        setcookie('username', '', time() - 3600);
+        setcookie('hash', '', time() - 3600);
+      }
+      
       // cek role id
       if ($row['role_id'] == 1) {
         # admin
@@ -47,12 +43,7 @@ if (isset($_POST['submit'])) {
       echo "password salah";
     }
 
-    if (isset($_POST['remember'])) {
-      setcookie('role_id', $row['role_id'], time() + 60 * 60 * 24);
-      setcookie('username', $row['username'], time() + 60 * 60 * 24);
-      $hash = hash('sha256', $row['id']);
-      setcookie('hash', $hash, time() + 60 * 60 * 24);
-    }
+    
   }
   $error = true;
 }
@@ -88,7 +79,7 @@ if (isset($_POST['submit'])) {
 
             <!-- Username -->
             <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+              <input type="text" class="form-control" id="username" name="username" placeholder="Username" value="<?php if(isset($_COOKIE['username'])) echo $_COOKIE['username'] ?>">
               <label for="floatingInput">Username</label>
             </div>
 
@@ -100,7 +91,7 @@ if (isset($_POST['submit'])) {
 
             <!-- Check box -->
             <div class="mb-3 form-check">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1" name="checkbox">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1" name="remember" <?php if(isset($_COOKIE['username'])) echo "checked" ?>>
               <label class="form-check-label" for="exampleCheck1">Remember me</label>
             </div>
 
