@@ -7,104 +7,118 @@ $components = new Components();
 
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <!-- Required meta tags -->
-      <meta charset="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <!-- Bootstrap CSS -->
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-      <!-- FontAwesome -->
-      <script src="https://kit.fontawesome.com/7cb1654f53.js" crossorigin="anonymous"></script>
-      <title>Keranjang || Sibulain</title>
-      <style>
-         body {
-         background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
-         }
-         button a {
-         color: white;
-         text-decoration: none;
-         } 
-         .titleShop {
-         font-weight: 800;
-         margin-top: 1%;
-         }
-         .menu {
-         color: #4c4c4c;
-         text-decoration: none;
-         }
-         .card, .form-control {
-        background: rgba(255, 255, 255, 0.95);
-        border-radius: 16px;
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(10.6px);
-        -webkit-backdrop-filter: blur(10.6px);
-        border: 1px solid rgba(255, 255, 255, 10); 
-         -webkit-border-radius: 30px;
-         -moz-border-radius: 30px;
-         border-radius: 30px;
-         }
-         table {
-         margin-top: 3%;
-         }
-         .card input, select {
-         margin-top: 10px;
-         }
-         label {
-         margin-top: 30px;
-         margin-bottom: 10px;
-         }
-         label.radio {
-         cursor: pointer
-         }
-         label.radio input {
-         position: absolute;
-         top: 0;
-         left: 0;
-         visibility: hidden;
-         pointer-events: none
-         }
-         label.radio span {
-         padding: 7px 14px;
-         border: 1px solid #1a1e21;
-         display: inline-block;
-         color: #1a1e21;
-         border-radius: 20px;
-         text-transform: uppercase
-         }
-         label.radio input:checked+span {
-         border-color: #1a1e21;
-         background-color: #1a1e21;
-         color: #fff
-         }
 
-         .table-hover > thead > tr > th {
-    border: none;
-}
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <!-- FontAwesome -->
+  <script src="https://kit.fontawesome.com/7cb1654f53.js" crossorigin="anonymous"></script>
+  <title>Keranjang || Sibulain</title>
+  <style>
+    body {
+      background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+    }
 
-      </style>
-   </head>
-   <body>
-      <!-- Navbar Start -->
-      <?= $components->navbar() ?>
-      <!-- Navbar End  -->
-      <!-- Container -->
-      <div class="container" style="padding-top: 5%;"> 
-      <button type="button" class="btn btn-primary" style="border-radius: 10px;" class="back"><a href="produk.php" >
-      Kembali
+    button a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .titleShop {
+      font-weight: 800;
+      margin-top: 1%;
+    }
+
+    .menu {
+      color: #4c4c4c;
+      text-decoration: none;
+    }
+
+    .card,
+    .form-control {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 16px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10.6px);
+      -webkit-backdrop-filter: blur(10.6px);
+      border: 1px solid rgba(255, 255, 255, 10);
+      -webkit-border-radius: 30px;
+      -moz-border-radius: 30px;
+      border-radius: 30px;
+    }
+
+    table {
+      margin-top: 3%;
+    }
+
+    .card input,
+    select {
+      margin-top: 10px;
+    }
+
+    label {
+      margin-top: 30px;
+      margin-bottom: 10px;
+    }
+
+    label.radio {
+      cursor: pointer
+    }
+
+    label.radio input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      visibility: hidden;
+      pointer-events: none
+    }
+
+    label.radio span {
+      padding: 7px 14px;
+      border: 1px solid #1a1e21;
+      display: inline-block;
+      color: #1a1e21;
+      border-radius: 20px;
+      text-transform: uppercase
+    }
+
+    label.radio input:checked+span {
+      border-color: #1a1e21;
+      background-color: #1a1e21;
+      color: #fff
+    }
+
+    .table-hover>thead>tr>th {
+      border: none;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar Start -->
+  <?= $components->navbar() ?>
+  <!-- Navbar End  -->
+  <!-- Container -->
+  <div class="container" style="padding-top: 5%;">
+    <button type="button" class="btn btn-primary" style="border-radius: 10px;" class="back"><a href="keranjang.php">
+        Kembali
       </a></button>
-      <section class="section2">
-        <div class="card border-0 shadow-sm mt-3">
-          <div class="card-body">
-            <h2 class="titleShop">Form Data</h2>
-            <p>Isi data kamu dengan benar!</p>
-            <div class="row">
-              <div class="col-md-6">
-                <form action="pembayaran.php" method="post">
+    <section class="section2">
+      <div class="card border-0 shadow-sm mt-3">
+        <div class="card-body">
+          <h2 class="titleShop">Form Data</h2>
+          <p>Isi data kamu dengan benar!</p>
+          <div class="row">
+            <div class="col-md-6">
+              <form action="pembayaran.php" method="post">
 
                 <input type="radio" name="inputRadio" value="1" id="flexRadioDefault1" /><img class="logo" src="asset/logoGopay.png" width="100px" checked>
                 <input type="radio" name="inputRadio" value="2" id="flexRadioDefault1" /><img class="logo" src="asset/logoBank.png" width="100px">
                 <input type="radio" name="inputRadio" value="3" id="flexRadioDefault1" /><img class="logo" src="asset/logoVirtual.png" width="150px">
-              </div>
+            </div>
             <div class="row">
               <div class="col-md-6">
                 <input type="text" class="form-control" placeholder="First Name" name="FirstName" />
@@ -118,7 +132,7 @@ $components = new Components();
                 <input type="text" class="form-control" placeholder="Address" name="Address_1" />
               </div>
               <div class="col-md-12">
-                <input type="text" class="form-control" placeholder="Address 2" name="Address_2"/>
+                <input type="text" class="form-control" placeholder="Address 2" name="Address_2" />
               </div>
             </div>
             <div class="row">
@@ -372,15 +386,15 @@ $components = new Components();
                 </select>
               </div>
               <div class="col-md-6">
-                <input type="text" class="form-control" placeholder="City" name="City"/>
+                <input type="text" class="form-control" placeholder="City" name="City" />
               </div>
             </div>
             <div class="row">
               <div class="col-md-6">
-                <input type="number" class="form-control" placeholder="ZIP / Postal Code" name="Zip"/>
+                <input type="number" class="form-control" placeholder="ZIP / Postal Code" name="Zip" />
               </div>
               <div class="col-md-6">
-                <input type="text" class="form-control" placeholder="Phone Number" name="Phone"/>
+                <input type="text" class="form-control" placeholder="Phone Number" name="Phone" />
               </div>
             </div>
             <div class="row">
@@ -403,26 +417,27 @@ $components = new Components();
             </div>
           </div>
         </div>
-      </section>
-      <button class="btn btn-light my-5 " style="border-radius: 10px;" type="submit" name="checkout" value="Check">Checkout</button>
+    </section>
+    <button class="btn btn-light my-5 " style="border-radius: 10px;" type="submit" name="checkout" value="Check">Checkout</button>
     </form>
-      </div>
-      <!-- Akhir dari Container -->
-      <!-- Option 1: Bootstrap Bundle with Popper -->
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-      <script>
-         updateSubTotal(); // Initial call
-         
-         function updateSubTotal() {
-           var table = document.getElementById("tabelku");
-         
-           let Total = Array.from(table.rows)
-             .slice(1)
-             .reduce((total, row) => {
-               return total + parseFloat(row.cells[5].innerHTML);
-             }, 0);
-           document.getElementById("total").innerHTML = "SubTotal = <b> Rp. " + Total.toFixed(3) + "</b>";
-         }
-      </script>
-   </body>
+  </div>
+  <!-- Akhir dari Container -->
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script>
+    updateSubTotal(); // Initial call
+
+    function updateSubTotal() {
+      var table = document.getElementById("tabelku");
+
+      let Total = Array.from(table.rows)
+        .slice(1)
+        .reduce((total, row) => {
+          return total + parseFloat(row.cells[5].innerHTML);
+        }, 0);
+      document.getElementById("total").innerHTML = "SubTotal = <b> Rp. " + Total.toFixed(3) + "</b>";
+    }
+  </script>
+</body>
+
 </html>
