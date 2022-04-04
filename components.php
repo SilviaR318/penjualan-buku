@@ -11,28 +11,28 @@ class Components
 
     function sidebar($username)
     {
-        return '<div class="offcanvas offcanvas-start" tabindex="-1" id="sidebar" aria-labelledby="sidebarLabel">
+        return '<div class="offcanvas offcanvas-start bg-secondary text-white" tabindex="-1" id="sidebar" aria-labelledby="sidebarLabel">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="sidebarLabel">Sibulain</h5>
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <button type="button" class="btn-close text-black" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
             <ul class="nav flex-column">
                 <li class="nav-item">
-                    <a class="nav-link" href="databuku.php">Dashboard</a>
+                    <a class="nav-link text-white" href="databuku.php">Dashboard</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="input.php">Tambah buku</a>
+                    <a class="nav-link text-white" href="input.php">Tambah buku</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="logout.php">Logout</a>
+                    <a class="nav-link text-white" href="logout.php">Logout</a>
                 </li>
             </ul>
         </div>
     </div>
 
     <main>
-        <nav class="navbar navbar-light bg-light">
+        <nav class="navbar navbar-dark bg-primary">
             <div class="container">
 
                 <div class="d-flex align-items-center">
@@ -44,7 +44,7 @@ class Components
 
                 <div class="dropdown">
                     <button type="button" class="btn dropdown-toggle" id="profile" data-bs-toggle="dropdown" aria-expanded="false">
-                        <span class="text-muted">' . $username . '</span>
+                        <span class="text-white">' . $username . '</span>
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="profile">
                         <li><a class="dropdown-item" href="logout.php">Logout</a></li>

@@ -15,7 +15,7 @@ function registrasi($data)
 
   $password = password_hash($password, PASSWORD_DEFAULT);
 
-  $query_tambah = "INSERT INTO user VALUE('',2,'$username','$password')";
+  $query_tambah = "INSERT INTO user (id, role_id, username, password) VALUES (1, 2,'$username','$password')";
   mysqli_query($conn, $query_tambah);
 
   return mysqli_affected_rows($conn);
